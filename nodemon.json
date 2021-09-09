@@ -1,0 +1,8 @@
+{
+  "env": {
+    "DB_USER": "peter-labib",
+    "DB_PASSWORD": "6hBzDNGZhMmmW53K",
+    "DB_NAME": "t-shirt-ecommerce",
+    "JWT_KEY": "just a password (-L-)"
+  }
+}
