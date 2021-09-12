@@ -6,7 +6,24 @@ const orderSchema = new Schema(
   {
     user: { type: mongoose.Types.ObjectId, require: true, ref: 'User' },
     orderItems: [
-      { type: mongoose.Types.ObjectId, require: true, ref: 'Product' },
+      {
+        name: { type: String, require: true },
+        qty: {
+          xs: { type: Number },
+          s: { type: Number },
+          m: { type: Number },
+          lg: { type: Number },
+          xl: { type: Number },
+          xxl: { type: Number },
+        },
+        image: { type: String, require: true },
+        price: { type: Number, require: true },
+        product: {
+          type: mongoose.Types.ObjectId,
+          require: true,
+          ref: 'Product',
+        },
+      },
     ],
     shippingAddress: {
       mobile: { type: String, require: true },

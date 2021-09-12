@@ -15,7 +15,8 @@ app.use(cors())
 
 app.use('/uploads/images', express.static(path.join('uploads', 'join')))
 
-app.use('/api/user', userRoute)
+app.use('/api/users', userRoute)
+// app.use('/api/products')
 
 app.use((req, res, next) => {
   const error = new HttpError({
@@ -43,9 +44,9 @@ mongoose
     `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@develop.a5v0e.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
     { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
   )
-  .then(({connection}) => {
+  .then(({ connection }) => {
     app.listen(5000)
-    console.log('mongodb connected: ',connection.host)
+    console.log('mongodb connected: ', connection.host)
   })
   .catch((error) => {
     console.log(error.message)

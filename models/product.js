@@ -15,12 +15,14 @@ const productSchema = new Schema({
   descrioption: { type: String, require: true },
   rating: { type: Number, require: true, default: 0 },
   numReviews: { type: Number, require: true, default: 0 },
+  reviews:[{ type: mongoose.Types.ObjectId, ref:'Review'}],
   countInStock: {
-    xs: { type: Number, require: true, default: 0 },
-    s: { type: Number, require: true, default: 0 },
-    lg: { type: Number, require: true, default: 0 },
-    xl: { type: Number, require: true, default: 0 },
-    xxl: { type: Number, require: true, default: 0 },
+    XS: { type: Number, require: true, default: 0 },
+    S: { type: Number, require: true, default: 0 },
+    M: { type: Number, require: true, default: 0 },
+    Lg: { type: Number, require: true, default: 0 },
+    XL: { type: Number, require: true, default: 0 },
+    XXL: { type: Number, require: true, default: 0 },
   },
 })
 
