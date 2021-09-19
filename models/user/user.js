@@ -8,12 +8,9 @@ const userSchema = new Schema({
   lastName: { type: String, require: true },
   email: { type: String, require: true, unique: true },
   password: { type: String, require: true },
-  mobile: { type: String, require: true, default:'' },
-  streetAddress: { type: String, require: true, default:'' },
-  city: { type: String, require: true, default:'' },
-  Governorate: { type: String, require: true, default:'' },
-  reviews: [{ type: mongoose.Types.ObjectId, require: true, ref: 'Review' }],
   isAdmin: { type: Boolean, require: true, default: false },
+  address: { type: mongoose.Types.ObjectId, require: true, ref: 'UserAddress' },
+  reviews: [{ type: mongoose.Types.ObjectId, require: true, ref: 'Review' }],
   orders: [{ type: mongoose.Types.ObjectId, require: true, ref: 'Order' }],
 })
 

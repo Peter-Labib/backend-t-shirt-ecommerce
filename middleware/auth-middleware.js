@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 const HttpError = require('../models/http-error')
 
-const checkAuth = (req, res, next) => {
+const checkAuthUser = (req, res, next) => {
   try {
     const token = req.headers.authorization.split(' ')[1]
 
@@ -25,7 +25,7 @@ const checkAuth = (req, res, next) => {
   }
 }
 
-checkAdmin = (req, res, next) => {
+checkAuthAdmin = (req, res, next) => {
   const { isAdmin } = req.userData
 
   if (!!isAdmin) {
@@ -39,5 +39,5 @@ checkAdmin = (req, res, next) => {
   }
 }
 
-exports.checkAuth = checkAuth
-exports.checkAdmin = checkAdmin
+exports.checkAuthUser = checkAuthUser
+exports.checkAuthAdmin = checkAuthAdmin

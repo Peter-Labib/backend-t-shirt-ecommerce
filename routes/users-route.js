@@ -2,7 +2,10 @@ const express = require('express')
 const { body } = require('express-validator')
 
 const usersController = require('../controllers/users-controller')
-const { checkAuth, checkAdmin } = require('../middleware/auth-middleware')
+const {
+  checkAuthUser,
+  checkAuthAdmin,
+} = require('../middleware/auth-middleware')
 
 const router = express.Router()
 
@@ -24,11 +27,11 @@ router.post(
 )
 
 // a middleware to check token validation
-router.use(checkAuth)
+router.use(checkAuthUser)
 
-router.patch('/profile',usersController.editProfileInfo)
+router.patch('/profile', usersController.editProfileInfo)
 
-router.use(checkAdmin)
+router.use(checkAuthAdmin)
 
 router.get('/', usersController.getUsers)
 

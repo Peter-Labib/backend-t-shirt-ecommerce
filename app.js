@@ -6,6 +6,7 @@ const fs = require('fs')
 
 const HttpError = require('./models/http-error')
 const userRoute = require('./routes/users-route')
+const reviewRoute = require('./routes/reviews-route')
 
 const app = express()
 
@@ -17,6 +18,7 @@ app.use('/uploads/images', express.static(path.join('uploads', 'join')))
 
 app.use('/api/users', userRoute)
 // app.use('/api/products')
+app.use('/api/reviews', reviewRoute)
 
 app.use((req, res, next) => {
   const error = new HttpError({
